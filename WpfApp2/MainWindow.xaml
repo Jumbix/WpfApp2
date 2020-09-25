@@ -5,8 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Carx" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <ComboBox Grid.Column="4" HorizontalAlignment="Left" Margin="0,21,0,0" Grid.Row="6" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged" x:Name="carName" IsSynchronizedWithCurrentItem="True">
+            <ComboBoxItem Content="Audi" />
+            <ComboBoxItem Content="BMW"/>
+            <ComboBoxItem Content="Chevrolette"/>
+            <ComboBoxItem Content="Dacia"/>
+            <ComboBoxItem Content="Ford"/>
+            <ComboBoxItem Content="Mercedes-Benz"/>
+            <ComboBoxItem Content="Mazda"/>
+            <ComboBoxItem Content="Opel"/>
+            <ComboBoxItem Content="Renault"/>
+            <ComboBoxItem Content="Skoda"/>
+            <ComboBoxItem Content="Toyota"/>
+            <ComboBoxItem Content="Volskwagen"/>
+        </ComboBox>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="10,9,0,0" TextWrapping="Wrap" Text="Marca" VerticalAlignment="Top" Grid.RowSpan="7"/>
+        <ComboBox Grid.Column="4" HorizontalAlignment="Left" Margin="179,21,0,0" Grid.Row="6" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"
+                  x:Name="carModel">
+            <ComboBoxItem Content="Mazda"/>
+        </ComboBox>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="197,9,0,0" TextWrapping="Wrap" Text="Model" VerticalAlignment="Top" Grid.RowSpan="7"/>
+        <ComboBox Grid.Column="4" HorizontalAlignment="Left" Margin="0,102,0,0" Grid.Row="6" VerticalAlignment="Top" Width="120" x:Name="priceRange">
+            <ComboBoxItem Content="1000"/>
+            <ComboBoxItem Content="2000"/>
+            <ComboBoxItem Content="4000"/>
+            <ComboBoxItem Content="6000"/>
+            <ComboBoxItem Content="8000"/>
+            <ComboBoxItem Content="10000"/>
+            <ComboBoxItem Content="20000"/>
+            <ComboBoxItem Content="40000"/>
+            <ComboBoxItem Content=">40000"/>
+        </ComboBox>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="131,70,0,0" Grid.Row="6" TextWrapping="Wrap" Text="Pret" VerticalAlignment="Top"/>
+        <Button Content="Cauta" Grid.Column="4" HorizontalAlignment="Left" Margin="418,21,0,0" Grid.Row="6" VerticalAlignment="Top" Width="106" Click="Button_Click" FontSize="15"/>
+        <ComboBox Grid.Column="4" HorizontalAlignment="Left" Margin="179,102,0,0" Grid.Row="6" VerticalAlignment="Top" Width="120" x:Name="priceRange_Copy">
+            <ComboBoxItem Content="1000"/>
+            <ComboBoxItem Content="2000"/>
+            <ComboBoxItem Content="4000"/>
+            <ComboBoxItem Content="6000"/>
+            <ComboBoxItem Content="8000"/>
+            <ComboBoxItem Content="10000"/>
+            <ComboBoxItem Content="20000"/>
+            <ComboBoxItem Content="40000"/>
+            <ComboBoxItem Content="&gt;40000"/>
+        </ComboBox>
+
+
     </Grid>
 </Window>
