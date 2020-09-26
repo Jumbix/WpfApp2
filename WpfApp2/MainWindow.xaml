@@ -57,19 +57,23 @@
             <ComboBoxItem Content="40000"/>
             <ComboBoxItem Content=">40000"/>
         </ComboBox>
-        <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="131,70,0,0" Grid.Row="6" TextWrapping="Wrap" Text="Pret" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="21,81,0,0" Grid.Row="6" TextWrapping="Wrap" Text="Pret" VerticalAlignment="Top"/>
         <Button Content="Cauta" Grid.Column="4" HorizontalAlignment="Left" Margin="418,21,0,0" Grid.Row="6" VerticalAlignment="Top" Width="106" Click="Button_Click" FontSize="15"/>
-        <ComboBox Grid.Column="4" HorizontalAlignment="Left" Margin="179,102,0,0" Grid.Row="6" VerticalAlignment="Top" Width="120" x:Name="priceRange_Copy">
-            <ComboBoxItem Content="1000"/>
-            <ComboBoxItem Content="2000"/>
-            <ComboBoxItem Content="4000"/>
-            <ComboBoxItem Content="6000"/>
-            <ComboBoxItem Content="8000"/>
+        <ComboBox Grid.Column="4" HorizontalAlignment="Left" Margin="179,102,0,0" Grid.Row="6" VerticalAlignment="Top" Width="120"/>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="197,81,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Anul Fabricatiei"/><LineBreak/><Run/></TextBlock>
+        <ComboBox Grid.Column="4" HorizontalAlignment="Left" Margin="0,183,0,0" Grid.Row="6" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="10000"/>
             <ComboBoxItem Content="20000"/>
-            <ComboBoxItem Content="40000"/>
-            <ComboBoxItem Content="&gt;40000"/>
+            <ComboBoxItem Content="50000"/>
+            <ComboBoxItem Content="80000"/>
+            <ComboBoxItem Content="100000"/>
+            <ComboBoxItem Content="200000"/>
+            <ComboBoxItem Content="400000"/>
+            <ComboBoxItem Content=">600000"/>
         </ComboBox>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="21,162,0,0" Grid.Row="6" TextWrapping="Wrap" Text="Kilometraj" VerticalAlignment="Top"/>
+        <ComboBox Grid.Column="4" HorizontalAlignment="Left" Margin="179,183,0,0" Grid.Row="6" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Combustibil" Grid.Column="4" HorizontalAlignment="Left" Margin="197,160,0,0" Grid.Row="6" VerticalAlignment="Top"/>
 
 
     </Grid>
