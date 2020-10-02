@@ -23,6 +23,7 @@ namespace WpfApp2
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -34,5 +35,24 @@ namespace WpfApp2
         {
 
         }
+
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            InitializeComponent();
+            List<int> t = new List<int>();
+            for (int i = 1950; i<=2020;i++)
+            {
+                t.Add(i);
+            }
+            buildYear.ItemsSource = t;
+            
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
+
+
 }
