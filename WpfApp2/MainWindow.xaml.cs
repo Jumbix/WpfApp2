@@ -33,16 +33,15 @@ namespace WpfApp2
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(carName.SelectedItem == "Audi")
+            {
 
+            }
         }
 
         private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            InitializeComponent();
-           
-            
-            
-            
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -53,6 +52,16 @@ namespace WpfApp2
                 t.Content = i;
                 anItem.Items.Add(t);
             }
+        }
+
+        private void AnItem_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CarModel_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 
