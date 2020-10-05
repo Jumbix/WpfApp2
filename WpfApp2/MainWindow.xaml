@@ -9,8 +9,8 @@
         Icon="C:\Users\Jumbix\source\repos\WpfApp2\WpfApp2\auto_car-16.jpg"
         Title="Carx" Height="450" Width="800">
     <Border Padding="10">
-        <StackPanel>
-            <Grid Height="120">
+        <StackPanel >
+            <Grid Height="120" Margin="0 0 0 10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -22,7 +22,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <ComboBox Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"
+                <ComboBox Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CarName_SelectionChanged"
                           x:Name="carName" IsSynchronizedWithCurrentItem="True">
                     <ComboBoxItem Content="Audi" />
                     <ComboBoxItem Content="BMW"/>
@@ -51,7 +51,7 @@
                     </Style>
                 </ComboBox>
                 <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="12,0,0,0" TextWrapping="Wrap" Text="Model" VerticalAlignment="Top" Grid.RowSpan="7"/>
-                <ComboBox Grid.Column="0" HorizontalAlignment="Left" Margin="0,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" x:Name="priceRange">
+                <ComboBox Grid.Column="0" HorizontalAlignment="Left" Margin="0,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" x:Name="priceRange" SelectionChanged="PriceRange_SelectionChanged">
                     <ComboBoxItem Content="1000 - 2000"/>
                     <ComboBoxItem Content="2000 - 4000"/>
                     <ComboBoxItem Content="4000 - 6000"/>
@@ -81,7 +81,7 @@
                     </Style>
                 </ComboBox>
                 <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="0" TextWrapping="Wrap" Text="Kilometraj" VerticalAlignment="Top"/>
-                <ComboBox Grid.Column="2" HorizontalAlignment="Left" Margin="0,25,0,0" Grid.Row="0" VerticalAlignment="Top" Width="120">
+                <ComboBox Grid.Column="2" HorizontalAlignment="Left" Margin="0,25,0,0" Grid.Row="0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
                     <ComboBoxItem Content="10000-20000"/>
                     <ComboBoxItem Content="20000-50000"/>
                     <ComboBoxItem Content="50000-80000"/>
@@ -91,16 +91,42 @@
                     <ComboBoxItem Content=">400000"/>
                 </ComboBox>
                 <Label Content="Combustibil" Grid.Column="2" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                <ComboBox Grid.Column="2" HorizontalAlignment="Left" Margin="0,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120">
+                <ComboBox Grid.Column="2" HorizontalAlignment="Left" Margin="0,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged_1">
                     <ComboBoxItem Content="Diesel"/>
                     <ComboBoxItem Content="Benzina"/>
+                    <ComboBoxItem Content="Electric"/>
                     <ComboBoxItem Content="Gaz"/>
+                    <ComboBoxItem Content="Hibrid"/>
                 </ComboBox>
 
             </Grid>
 
             <Grid>
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="90"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding}" x:Name="cel11"/>
+                <!--<Image HorizontalAlignment="Center" Height="0" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Width="100" Source="{Binding}"/>-->
+                <TextBlock Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding}" x:Name="cel12"/>
+                <TextBlock Grid.Column="2" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding}" x:Name="cel13"/>
+                <TextBlock Grid.Column="3" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding}" x:Name="cel14"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding}" x:Name="cel21"/>
+                <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding}" x:Name="cel22"/>
+                <TextBlock Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding}" x:Name="cel23"/>
+                <TextBlock Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding}" x:Name="cel24"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding}" x:Name="cel31"/>
+                <TextBlock Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding}" x:Name="cel32"/>
+                <TextBlock Grid.Column="2" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding}" x:Name="cel33"/>
+                <TextBlock Grid.Column="3" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding}" x:Name="cel34"/>
+
             </Grid>
         </StackPanel>
     </Border>
