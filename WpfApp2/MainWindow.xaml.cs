@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,23 +37,26 @@ namespace WpfApp2
         {
             if (carName.SelectedItem.ToString() == "Audi")
             {
-                var t = new ComboBoxItem();
-                t.Content = "A1";
-                carModel.Items.Add(t);
-                t.Content = "A2";
-                carModel.Items.Add(t);
-                t.Content = "A3";
-                carModel.Items.Add(t);
-                t.Content = "A4";
-                carModel.Items.Add(t);
-                t.Content = "A5";
-                carModel.Items.Add(t);
-                t.Content = "A6";
-                carModel.Items.Add(t);
-                t.Content = "A7";
-                carModel.Items.Add(t);
-                t.Content = "A8";
-                carModel.Items.Add(t);
+                List<string> t = new List<string>();
+                t.Add("A1");
+                t.Add("A2");
+                carModel.ItemsSource = t;
+                //t.source = "A1";
+                //carModel.Items.Add(t);
+                //t.Content = "A2";
+                //carModel.Items.Add(t);
+                //t.Content = "A3";
+                //carModel.Items.Add(t);
+                //t.Content = "A4";
+                //carModel.Items.Add(t);
+                //t.Content = "A5";
+                //carModel.Items.Add(t);
+                //t.Content = "A6";
+                //carModel.Items.Add(t);
+                //t.Content = "A7";
+                //carModel.Items.Add(t);
+                //t.Content = "A8";
+                //carModel.Items.Add(t);
             }
             if (carName.SelectedItem.ToString() == "BMW")
             {
@@ -117,7 +122,6 @@ namespace WpfApp2
             }
         }
 
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             for (int i = 1950; i <= 2020; i++)
@@ -126,31 +130,6 @@ namespace WpfApp2
                 t.Content = i;
                 anItem.Items.Add(t);
             }
-        }
-
-        private void AnItem_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void CarModel_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void PriceRange_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 
