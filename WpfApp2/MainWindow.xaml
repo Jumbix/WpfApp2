@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Icon="C:\Users\Jumbix\source\repos\WpfApp2\WpfApp2\auto_car-16.jpg"
+        Icon="C:\Users\raulp\Documents\GitHub\WpfApp2\WpfApp2\auto_car-16.jpg"
         Title="Carx" Height="450" Width="800">
     <Border Padding="10">
         <StackPanel >
