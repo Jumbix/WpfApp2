@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Icon="C:\Users\Jumbix\source\repos\WpfApp2\WpfApp2\auto_car-16.jpg"
+        Icon="C:\Users\raulp\Documents\GitHub\WpfApp2\WpfApp2\auto_car-16.jpg"
         Title="Carx" Height="450" Width="800">
     <Border Padding="10">
         <StackPanel >
@@ -46,7 +46,7 @@
                     <ComboBoxItem Content="80000"/>
                     <ComboBoxItem Content="100000"/>
                     <ComboBoxItem Content="200000"/>
-                    <ComboBoxItem Content=">200000"/>
+                    <ComboBoxItem Content="500000"/>
                 </ComboBox>
                 <Label Content="Combustibil" Grid.Column="2" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="1" VerticalAlignment="Top"/>
                 <ComboBox Grid.Column="2" HorizontalAlignment="Left" Margin="0,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged_1" x:Name="runsOn">
@@ -58,7 +58,7 @@
                 </ComboBox>
 
             </Grid>
-            <DataGrid Height="270" SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid Height="270" SelectionChanged="DataGrid_SelectionChanged" x:Name="OfferGrid">
                 
             </DataGrid>
 

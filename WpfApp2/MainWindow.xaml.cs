@@ -42,17 +42,36 @@ namespace WpfApp2
 
         }
 
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var car = carName.SelectedItem.ToString();
-            var model = carModel.SelectedItem.ToString();
-            var miles = mileage.SelectedItem.ToString();
-            var price1 = priceRange1.Text;
-            var price2 = priceRange2.Text;
-            var year = anItem.SelectedItem.ToString();
-            var gas = runsOn.SelectedItem.ToString();
+            Random rnd = new Random();
+            string car = (carName.SelectedItem as ComboBoxItem).Content.ToString();
+            string model = (carModel.SelectedItem as ComboBoxItem).Content.ToString();
+            int miles = int.Parse((mileage.SelectedItem as ComboBoxItem).Content.ToString());
+            int price1 = int.Parse(priceRange1.Text.ToString());
+            int price2 = int.Parse(priceRange2.Text.ToString());
+            int year = int.Parse((anItem.SelectedItem as ComboBoxItem).Content.ToString());
+            string gas = runsOn.SelectedItem.ToString();
+            List<Car> cars = new List<Car>();
+            
+            cars.Add(new Car() { CarName = car, CarModel = model, Milage = rnd.Next(miles), Price = rnd.Next(price1, price2), Year = rnd.Next(year), Gas = gas });
 
-            var x = new DataGridCell();
+
+
+            OfferGrid.ItemsSource = cars;
+        }
+
+        public class Car
+        {
+            public string CarName { get; set; }
+            public string CarModel { get; set; }
+            public string Gas { get;set; }
+            public int Milage { get; set; }
+            public int Price { get; set; }
+            public int Year { get; set; }
+
+
         }
 
         private void CarName_SelectionChanged(object sender, SelectionChangedEventArgs e)
