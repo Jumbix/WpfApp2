@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Data.SqlClient;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace WpfApp2
 {
@@ -25,6 +27,15 @@ namespace WpfApp2
         public MainWindow()
         {
             InitializeComponent();
+            SqlConnection connection = new SqlConnection(@"SERVER=localhost;DATABASE=Carx_db;Integrated Security = true;");
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            DataTable dt = new DataTable();
+            cmd.CommandText = "SELECT MarcaMasina, ModelMasina, Kilometraj, Pret, AnFab, Combustibil FROM dbo.Masina";
+            dt.Load(cmd.ExecuteReader());
+            connection.Close();
+            OfferGrid.DataContext = dt;
             List<string> t = new List<string>();
             t.Add("Audi");
             t.Add("BMW");
@@ -39,6 +50,7 @@ namespace WpfApp2
             t.Add("Toyota");
             t.Add("Volskwagen");
             carName.ItemsSource = t;
+            //"select = from Carx_db", connection
 
         }
 
@@ -46,38 +58,59 @@ namespace WpfApp2
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Random rnd = new Random();
-            string car = (carName.SelectedItem as ComboBoxItem).Content.ToString();
-            string model = (carModel.SelectedItem as ComboBoxItem).Content.ToString();
+            string car = carName.SelectedItem.ToString();
+            string model = carModel.SelectedItem.ToString();
             int miles = int.Parse((mileage.SelectedItem as ComboBoxItem).Content.ToString());
             int price1 = int.Parse(priceRange1.Text.ToString());
             int price2 = int.Parse(priceRange2.Text.ToString());
             int year = int.Parse((anItem.SelectedItem as ComboBoxItem).Content.ToString());
-            string gas = runsOn.SelectedItem.ToString();
-            List<Car> cars = new List<Car>();
-            
-            cars.Add(new Car() { CarName = car, CarModel = model, Milage = rnd.Next(miles), Price = rnd.Next(price1, price2), Year = rnd.Next(year), Gas = gas });
+            string gas = (runsOn.SelectedItem as ComboBoxItem).Content.ToString();
 
+            SqlConnection connection = new SqlConnection(@"SERVER=localhost;DATABASE=Carx_db;Integrated Security = true;");
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            DataTable dt = new DataTable();
+            cmd.CommandText = "SELECT MarcaMasina, ModelMasina, Kilometraj, Pret, AnFab, Combustibil FROM dbo.Masina WHERE MarcaMasina = car AND ModelMasina = 'model' AND Combustibil = 'gas' AND AnFab > 'year' AND Pret BETWEEN 'price1' AND 'price2' AND Kilometraj < 'milage'; ";
+            var reader = cmd.ExecuteReader();
+            string carb = (string)reader["MarcaMasina"];
+            string modelb = (string)reader[model];
+            string gasb = (string)reader[gas];
+            int milesb = (int)reader[miles];
+            int preice1b = (int)reader[price1];
+            int price2b = (int)reader[price2];
+            int yearb = (int)reader[year];
+            dt.Load(reader);
+            dt.Select(car);
+            dt.Select(model);
+            connection.Close();
 
+            //List<Car> cars = new List<Car>();
 
-            OfferGrid.ItemsSource = cars;
+            //cars.Add(new Car() { CarName = car, CarModel = model, Milage = rnd.Next(miles), Price = rnd.Next(price1, price2), Year = year, Gas = gas });
+            //cars.Add(new Car() { CarName = car, CarModel = model, Milage = rnd.Next(miles), Price = rnd.Next(price1, price2), Year = year, Gas = gas });
+            //cars.Add(new Car() { CarName = car, CarModel = model, Milage = rnd.Next(miles), Price = rnd.Next(price1, price2), Year = year, Gas = gas });
+            //cars.Add(new Car() { CarName = car, CarModel = model, Milage = rnd.Next(miles), Price = rnd.Next(price1, price2), Year = year, Gas = gas });
+            //cars.Add(new Car() { CarName = car, CarModel = model, Milage = rnd.Next(miles), Price = rnd.Next(price1, price2), Year = year, Gas = gas });
+
+            //OfferGrid.ItemsSource = cars;
         }
 
-        public class Car
-        {
-            public string CarName { get; set; }
-            public string CarModel { get; set; }
-            public string Gas { get;set; }
-            public int Milage { get; set; }
-            public int Price { get; set; }
-            public int Year { get; set; }
-
-
-        }
+        //public class Car
+        //{
+        //    public string CarName { get; set; }
+        //    public string CarModel { get; set; }
+        //    public string Gas { get;set; }
+        //    public int Milage { get; set; }
+        //    public int Price { get; set; }
+        //    public int Year { get; set; }
+        //}
 
         private void CarName_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (carName.SelectedItem.ToString() == "Audi")
             {
+
                 List<string> t = new List<string>();
                 t.Add("A1");
                 t.Add("A2");
@@ -187,7 +220,7 @@ namespace WpfApp2
             }
         }
 
-            private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             for (int i = 1950; i <= 2020; i++)
             {
